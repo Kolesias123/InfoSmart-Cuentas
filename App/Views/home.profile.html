@@ -1,0 +1,65 @@
+<div class="content">
+	<div class="col1">
+		<section>
+			<h3>Perfil</h3>
+
+			<div class="in_form">
+				<section>
+					<div class="c1">
+						<input type="checkbox" value="true" name="profile" data-save <? if($me['profile'] == '1') { ?>checked<?}?> />
+					</div>
+
+					<div class="c2">
+						<p>
+							¿Deseas activar tu perfil? Este podrá ser visible al público.
+						</p>
+
+						<span class="h">Tu perfil te proporciona un lugar para mostrar información acerca de ti.</span>
+					</div>
+				</section>
+			</div>
+		</section>
+
+		<section>
+			<h5>La privacidad de tu perfil</h5>
+
+			<p>
+				Selecciona que información podrá ser visible desde tu perfil.
+			</p>
+
+			<div class="in_form" id="privacy">
+				<? foreach($PRIVACY as $key => $name) { ?>
+				<section>
+					<div class="c1">
+						<select name="privacy_<?=$key?>" id="privacy_<?=$key?>" role="menu">
+							<option value="public">Público</option>
+							<option value="private" <? if($me_privacy[$key] == 'private') { ?>selected<?}?>>Privado</option>
+						</select>
+
+						<span class="herror" data-for="privacy_<?=$key?>"></span>
+					</div>
+
+					<div class="c2">
+						<p>
+							<?=$name?>
+						</p>
+
+						<span class="h">
+							<?
+							$display = $me[$key];
+
+							if($key == 'gender')
+								$display = ($me['gender'] == 'm') ? 'Hombre' : 'Mujer';
+
+							if($key == 'lastaccess')
+								$display = Date::CalculateTime($me['lastaccess']);
+
+							echo $display;
+							?>
+						</span>
+					</div>
+				</section>
+				<? } ?>
+			</div
+		</section>
+	</div>

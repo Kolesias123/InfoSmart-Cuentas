@@ -1,0 +1,83 @@
+<div class="content">
+	<section class="min-desc">
+		<h3>%app_name%</h3>
+
+		<p>
+			%app_description%
+		</p>
+	</section>
+
+	<section>
+		<form action="%PATH%/actions/login" method="POST" class="login-form">
+			<input type="hidden" name="return" value="{$return}" />
+			<input type="hidden" name="return_error" value="{$return_error}" />
+
+				<div class="center">
+					<p class="inp">
+						<label>Identificación:</label>
+						<input type="text" name="id" value="{$loginId}" placeholder="Correo electrónico, nombre de usuario o número de teléfono" required spellcheck="false" {$field_id} />
+
+						<? if($error['field'] == 'id') { ?>
+						<span class="herror block">{$error.message}</span>
+						<? } ?>
+					</p>
+
+					<p class="inp">
+						<label>Contraseña:</label>
+						<input type="password" name="password" value="" required {$field_password} />
+
+						<? if($error['field'] == 'password') { ?>
+						<span class="herror block">{$error.message}</span>
+						<? } ?>
+					</p>
+				</div>
+
+				<p style="margin-left: 4%">
+					<input type="checkbox" name="remember" value="true" /> No cerrar sesión
+				</p>
+
+				<input type="file" name="photo_access" id="photo_access" accept="image/png,image/jpeg,image/gif" />
+
+				<div class="btns">
+					<button class="ibtn igiant">Acceder</button>
+
+					<a class="ibtn iblue igiant" id="access_photo">Acceder con una imagen</a>
+				</div>
+		</form>
+	</section>
+</div>
+</div>
+
+<section class="graybg">
+	<div class="social">
+		<a class="fb">Facebook</a>
+		<a class="tw">Twitter</a>
+		<a class="steam">Steam</a>
+	</div>
+
+	<div class="other">
+		<a href="%PATH%/connect/forgot">¿Has olvidado tu contraseña?</a>
+		<a href="%PATH%/connect/register" class="ibtn ired">¿Sin cuenta? ¡Registrate!</a>
+	</div>
+</section> 
+
+<div class="wrap">
+<div class="content">
+	<div class="features">
+		<? foreach($features as $key => $data) {  ?>
+		<section>
+			<figure>
+				<img src="<?=$data['image']?>" />
+			</figure>
+
+			<div class="description">
+				<span class="title"><?=$data['title']?></span>
+
+				<p>
+					<?=$data['content']?>
+				</p>
+			</div>
+		</section>
+		<? } ?>
+	</div>
+</div>

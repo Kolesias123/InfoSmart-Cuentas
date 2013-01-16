@@ -1,0 +1,41 @@
+<div class="content">
+	<h3>Mis aplicaciones</h3>
+
+	<p>
+		<a href="%PATH%/dev/apps/new" class="ibtn">Crear aplicación</a>
+	</p>
+
+	<? if($apps == false) { ?>
+	<p>
+		No has creado ninguna aplicación.
+	</p>
+	<? } else { ?>
+
+	<div class="apps">
+	<? while($row = fetch_assoc($apps)) { ?>
+
+	<section>
+		<a href="%PATH%/dev/apps/<?=$row['public_key']?>" class="name"><?=$row['name']?></a>
+
+		<div class="desc">
+			<?=$row['description']?>
+		</div>
+
+		<div class="keys">
+			<span>
+				<strong>Llave pública</strong>
+				<?=$row['public_key']?>
+			</span>
+
+			<span>
+				<strong>Llave privada</strong>
+				<?=$row['private_key']?>
+			</span>
+		</div>
+	</section>
+
+	<? } ?>
+	</div>
+
+	<? } ?>
+</div>

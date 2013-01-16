@@ -1,0 +1,74 @@
+<div class="content">
+	<div class="col1">
+		<section>
+			<h3>Seguridad de la cuenta</h3>
+
+			<div class="in_form">
+				<section>
+					<div class="c1">
+						<input type="checkbox" value="true" name="secure" data-save <? if($me['secure'] == '1') { ?>checked<?}?> />
+					</div>
+
+					<div class="c2">
+						<p>
+							¿Deseas habilitar la conexión segura a %SITE_NAME%?
+						</p>
+
+						<span class="h">Toda la información será cifrada.</span>
+					</div>
+				</section>
+
+				<section>
+					<div class="c1">
+						<input type="checkbox" value="true" name="secure" data-save <? if($me['secure'] == '1') { ?>checked<?}?> />
+					</div>
+
+					<div class="c2">
+						<p>
+							¿Deseas habilitar la conexión segura a %SITE_NAME%?
+						</p>
+
+						<span class="h">Toda la información será cifrada.</span>
+					</div>
+				</section>
+			</div>
+		</section>
+
+		<section>
+			<h4>Acceso y recuperación de la cuenta</h4>
+
+			<div class="in_form">
+				<section>
+					<div class="c1">
+						<input type="file" name="photo_access" id="photo_access" />
+					</div>
+
+					<div class="c2">
+						<p style="margin-top: 3px;">
+							Imagen de acceso a la cuenta
+						</p>
+
+						<span class="h" data-tooltip="Recuerda usar una imagen que solo tu poseas, por ejemplo una imagen creada por ti o una foto familiar.">
+							Puedes utilizar una imagen especial para acceder a tu cuenta en vez de la identificación y la contraseña.
+
+							<? if(!empty($me['photo_access'])) { ?>
+							<span class="info_photo_access">
+								<strong>Actualmente tienes una imagen de acceso.</strong>
+
+								<a class="red" id="delete_photo_access">Eliminar</a>
+							</span>
+							<? } ?>
+						</span>
+					</div>
+				</section>
+			</div>
+
+			<div class="form forgot-form">
+				<p>
+					<label>Palabra magica</label>
+					<input type="password" name="magic_word" id="magic_word" value="%me_magic_word%" placeholder="Escribe algo que solo tu sepas." data-save x-webkit-speech speech data-tooltip="La palabra mágica te puede ayudar a recuperar el acceso a tu cuenta, debe ser una palabra que solo tu sepas." data-tooltip-align="bottom" />
+					<span class="herror" data-for="magic_word"></span>
+				</p>
+			</div>
+		</section>
+	</div>

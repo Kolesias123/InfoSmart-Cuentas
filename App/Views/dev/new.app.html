@@ -1,0 +1,49 @@
+<div class="content">
+	<h3>Crear nueva aplicación</h3>
+
+	<div class="box-error">
+		{$error}
+	</div>
+
+	<form action="%PATH%/actions/dev/new.app.php" method="POST" class="login-form">
+		<p>
+			<label>Nombre</label>
+			<input type="text" name="name" value="%app_name%" required x-webkit-speech />
+		</p>
+
+		<p>
+			<label>Descripción</label>
+			<textarea name="description" required>%app_description%</textarea>
+		</p>
+
+		<section id="features">
+			<h4>Características de su aplicación</h4>
+
+			<div class="feature">
+				<p>
+					<label>Titulo</label>
+					<input type="text" name="feature_title[]" x-webkit-speech />
+				</p>
+
+				<p>
+					<label>Contenido</label>
+					<textarea name="feature_content[]"></textarea>
+				</p>
+
+				<p>
+					<label>Dirección de la imagen</label>
+					<input type="url" name="feature_image[]" />
+				</p>
+			</div>
+		</section>
+
+		<p>
+			<a id="add_feature">Agregar una nueva característica</a>
+		</p>
+
+		<p>
+			<button class="ibtn ibig">Crear aplicación</button>
+			<a href="%PATH%/dev/apps">Regresar</a>
+		</p>
+	</form>
+</div>

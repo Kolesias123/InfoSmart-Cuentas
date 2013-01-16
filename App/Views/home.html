@@ -1,0 +1,82 @@
+<div class="content home">
+	<div class="col1 form">
+		<section>
+			<h4>Información personal</h4>
+
+			<div class="col3">					
+				<p>
+					<label>Nombre</label>
+					<input type="text" name="firstname" class="share" value="%me_firstname%" placeholder="Nombre" required x-webkit-speech speech data-save />
+					<input type="text" name="lastname" class="share" value="%me_lastname%" placeholder="Apellidos" required x-webkit-speech speech data-save />
+
+					<span class="herror" data-for="name"></label>
+				</p>
+
+				<p>
+					<label>Ubicación</label>
+					<select name="country" id="country" required role="menu" data-save>
+						<option value="">Selecciona...</option>
+
+						<? while($row = fetch_assoc($countrys)) { ?>
+						<option value="<?=$row['code2']?>" <? if($me['country'] == $row['code2']) { ?>selected="selected"<? } ?>><?=utf8_decode($row['name'])?></option>
+						<? } ?>
+					</select>
+					<span class="herror" data-for="country"></label>
+				</p>
+			</div>
+
+			<div class="col4">
+				<p>
+					<label>Sexo</label>
+
+					<select name="gender" id="gender" required role="menu" data-save>
+						<option value="f">Mujer</option>
+						<option value="m" <? if($me['gender'] == 'm') { ?>selected="selected"<? } ?>>Hombre</option>
+					</select>
+					<span class="herror" data-for="gender"></label>
+				</p>
+			</div>
+		</section>
+
+		<section class="emails">
+			<h4>Correo electrónico</h4>
+
+			<p>
+				<span class="t1">Correo primario</span>
+				%me_email%
+			</p>
+
+			<div class="alt_emails">
+			<? foreach($me_emails as $email) { ?>
+			<p>
+				<span class="t1">
+					<a class="icon" title="Eliminar correo" data-action="delete_altemail" data-altemail="<?=$email?>">&#xe221;</a>
+				</span>
+
+				<?=$email?>
+			</p>
+			<? } ?>
+			</div>
+
+			<div class="add">
+				<span class="tt1">Agregar una nueva dirección de correo alternativa:</span>
+
+				<p>
+					<input type="email" id="alt_email" value="" />
+					<button id="add_alt_email" class="ibtn">Agregar</button>
+				</p>
+
+				<span class="herror" data-for="alt_email"></span>
+			</div>
+		</section>
+	</div>
+
+<script>
+setTimeout(function()
+{
+	$('input[type="hidden"]').each(function()
+	{
+		$(this).attr('data-save', '');
+	});
+}, 3000);
+</script>

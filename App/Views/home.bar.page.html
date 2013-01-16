@@ -1,0 +1,47 @@
+<div class="col2 resize details" data-parent=".content">
+		<? if($page['id'][0] == 'home.profile') { ?>
+
+		<section>
+			<h5>Detalles de tu perfil</h5>
+
+			<p>
+				<label>Dirección</label>
+				<a href="http://profile.infosmart.mx/%me_username%" target="_blank">http://profile.infosmart.mx/%me_username%</a>
+			</p>
+
+			<p>
+				<label>Última visita</label>
+				<?=($me['profile_lastaccess'] == '0') ? 'No has tenido visitas.' : Date::CalculateTime($me['profile_lastaccess'])?>
+			</p>
+
+			<p>
+				<label>Visitas:</label>
+				%me_profile_visits%
+			</p>
+		</section>
+
+		<? } ?>
+		
+	</div>
+</div>
+
+<div class="AlertBox" id="oops_message">
+	<div class="AlertTitle">¡Oops!</div>
+
+	<div class="AlertContent">
+		<div class="AlertMsg" style="width: 400px">
+			<p>
+				Al parecer nos hemos encontrado con un temible error técnico, no te preocupes nuestros chimpancés superdesarrollados ya estan investigando el problema.
+			</p>
+
+			<p>
+				Refresca la página y vuelve a intentarlo.
+			</p>
+
+			<p>
+				Si ves a alguno de esos chimpancés porfavor proporcionales este código: <span id="oops_code"></span>
+			</p>
+		</div>
+		<div class="AlertFoot"></div>
+	</div>
+</div>

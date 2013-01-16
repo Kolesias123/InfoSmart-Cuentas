@@ -1,0 +1,56 @@
+<div class="content">
+	<h3>Recuperemos su cuenta</h3>
+
+	<p>
+		No se preocupe, siga estas instrucciones para recuperar el acceso a su cuenta.
+	</p>
+
+	<div class="form forgot-steps forgot-form">
+		<section class="step" data-step="1">
+			<p>
+				<label>¿Qué información ha perdido?</label>
+
+				<input type="radio" name="type" value="id" /> La identificación. <i>(Correo electrónico, nombre de usuario, número de teléfono)</i>
+				<br />
+				<input type="radio" name="type" value="password" /> La contraseña
+			</p>
+		</section>
+
+		<section class="step" data-step="2" data-type="id">
+			<p>
+				<label>¿Como podemos identificarte?</label>
+
+				<input type="radio" name="i_d" value="rem" /> 
+				<span data-tooltip="Podemos darte una lista de coincidencias con lo que recuerdes de tu nombre de usuario." data-tooltip-bottom="20">Recuerdo parte de mi nombre de usuario.</span>
+				<br />
+				<input type="radio" name="i_d" value="me_info" /> 
+				<span data-tooltip="Podemos darnos una pista más exacta de quien eres si nos das más información de ti." data-tooltip-bottom="20">Rellenar toda la información de mi cuenta que recuerde.</span>
+				<br />
+				<input type="radio" name="i_d" value="alt_email" /> 
+				<span data-tooltip="Un correo alternativo es única para cada cuenta, si recuerdas alguno de los que registraste en ella podremos saber quien eres." data-tooltip-bottom="20">Recuerdo un correo electrónico alternativo de mi cuenta.</span>
+			</p>
+		</section>
+
+		<section class="step" data-step="2" data-type="password">
+			<p>
+				<label>¿Quien eres?</label>
+
+				<input type="text" name="password_id" id="password_id" placeholder="Correo electrónico, nombre de usuario o número de teléfono" form="form_forgot_password" />
+				<span class="herror" data-for="password_id"></span>
+			</p>
+
+			<p>
+				<label>¿A donde te podemos envíar una contraseña?</label>
+
+				<input type="radio" name="password_where" value="alt_email" form="form_forgot_password" /> Correo electrónico <i>(principal o alternativo)</i>
+				<br />
+				<input type="radio" name="password_where" value="social" form="form_forgot_password" /> 
+				<span data-tooltip="Si has aliado tu cuenta de Facebook/Twitter con tu cuenta de %SITE_NAME% podemos enviarte un mensaje privado a cualquiera de las dos con una contraseña temporal." data-tooltip-bottom="20">Mensaje privado por tu cuenta de Facebook o Twitter.</span>
+			</p>
+		</section>
+
+		<form action="%PATH%/actions/forgot.password.php" method="POST" id="form_forgot_password">
+			<button class="ibtn">Siguiente</button>
+		</form>
+	</div>
+</div>

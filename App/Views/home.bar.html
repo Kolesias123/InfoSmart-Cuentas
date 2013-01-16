@@ -1,0 +1,29 @@
+<div class="col2 resize details" data-parent=".content">
+		<section>
+			<h5>Detalles de la cuenta</h5>
+
+			<p>
+				<label>Último acceso</label>
+				<?=Date::CalculateTime($me['lastaccess'])?>
+			</p>
+
+			<p>
+				<label>Dirección IP</label>
+				%me_ip%
+			</p>
+
+			<p>
+				<label>Te conectas desde</label>
+				{%COUNTRY}
+			</p>
+		</section>
+
+		<section>
+			<h5>Últimas aplicaciones</h5>
+
+			<p>
+				No has usado ninguna aplicación.
+			</p>
+		</section>
+	</div>
+</div>

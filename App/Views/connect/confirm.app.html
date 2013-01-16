@@ -1,0 +1,65 @@
+<div class="content">
+	<section class="min-desc">
+		<h3>%app_name%</h3>
+
+		<p>
+			%app_description%
+		</p>
+	</section>
+
+	<section>
+		<form action="%PATH%/connect/authorize?authorize=true" method="POST" class="login-form">
+			<input type="hidden" name="public" value="{$G.public}" />
+			<input type="hidden" name="return" value="{$G.return}" />
+
+			<div class="center">
+				<p class="inp">
+					<label>Identificación:</label>
+					<span class="data">%me_username%</span>
+				</p>
+
+				<p class="inp">
+					<label>Contraseña:</label>
+					<span class="data">*******</span>
+				</p>
+			</div>
+
+			<div class="btns">
+				<button class="ibtn igiant">Confirmar</button>
+			</div>
+		</form>
+	</section>
+</div>
+</div>
+
+<section class="graybg">
+	<div class="scope">
+		Si aceptas, %app_name% tendrá acceso a:
+	</div>
+
+	<div class="other">
+		¿No eres tu?
+		<a href="%PATH%/connect/register" class="ibtn ired">Acceder con otra cuenta</a>
+	</div>
+</section> 
+
+<div class="wrap">
+<div class="content">
+	<div class="features">
+		<? foreach($features as $key => $data) {  ?>
+		<section>
+			<figure>
+				<img src="<?=$data['image']?>" />
+			</figure>
+
+			<div class="description">
+				<span class="title"><?=$data['title']?></span>
+
+				<p>
+					<?=$data['content']?>
+				</p>
+			</div>
+		</section>
+		<? } ?>
+	</div>
+</div>

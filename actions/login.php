@@ -1,6 +1,12 @@
 <?
 require '../Init.php';
 
+## --------------------------------------------------
+## Inicio de sesión
+## --------------------------------------------------
+## Solo eso.
+## --------------------------------------------------
+
 # Ya hemos iniciado sesión.
 # Redireccionar a la página de "retorno", si esta vacio pues a la home.
 if(LOG_IN)
@@ -10,13 +16,13 @@ $error = array();
 
 ## Verificar que los datos sean correctos.
 
-if(empty($P['id']))
+if( empty($P['id']) )
 {
 	$error['field']		= 'id';
 	$error['message'] 	= 'Escribe tu dirección de correo, nombre de usuario o número de teléfono.';
 }
 
-else if(empty($P['password']))
+else if( empty($P['password']) )
 {
 	$error['field']		= 'password';
 	$error['message'] 	= 'Escribe tu contraseña.';
@@ -34,7 +40,8 @@ else if(!Users::Verify($P['id'], $P['password']))
 	$error['message'] 	= 'Tu identificación o tu contraseña no son correctas.';
 }
 
-if(empty($error))
+# Sin errores.
+if( empty($error) )
 {
 	# ¿Permanecer conectado?
 	$remember = false;
@@ -51,8 +58,9 @@ if(empty($error))
 }
 else
 {
-	## ¡Uy! Ocurrio algo mal.
+	## ¡Uy! Un error.
 
+	# Guardamos los errores y los datos necesarios en sesiones.
 	_SESSION('login_error_field', 	$error['field']);
 	_SESSION('login_error_message', $error['message']);
 	_SESSION('login_id',			$P['id']);

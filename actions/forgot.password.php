@@ -1,7 +1,14 @@
 <?
 require '../Init.php';
 
-## ¡INCOMPLETO!
+## --------------------------------------------------
+## Olvido de contraseña
+## --------------------------------------------------
+## Página para procesar la información enviada del
+## formulario de "Olvido de constraseña"
+## --------------------------------------------------
+## ¡¡ INCOMPLETO !!
+## --------------------------------------------------
 
 # Ya hemos iniciado sesión.
 # Redireccionar a la página principal.

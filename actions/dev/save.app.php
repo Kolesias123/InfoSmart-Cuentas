@@ -2,13 +2,20 @@
 require '../../Init.php';
 
 ## --------------------------------------------------
-## Desarrolladores - Crear una aplicación
+## Desarrolladores - Guardar aplicación.
 ## --------------------------------------------------
-## Crea una nueva aplicación.
+## Guardar los cambios realizados a una aplicación.
 ## --------------------------------------------------
 
-# No hemos iniciado sesión
+# No hemos iniciado sesión.
 if(!LOG_IN)
+	Core::Redirect('/dev/apps');
+
+# Obtenemos la información de la aplicación a partir de su clave pública.
+$app = Apps::GetPublic($P['public']);
+
+# ¡La aplicación no existe!
+if(!$app)
 	Core::Redirect('/dev/apps');
 
 $error = array();
@@ -24,8 +31,11 @@ if( empty($P['description']) )
 # Sin errores.
 if( empty($error) )
 {
-	# Crear nuva aplicación
-	Apps::NewApp($P['name'], $P['description']);
+	# Actualizamos la información.
+	Apps::Update(array(
+		'name'			=> $P['name'],
+		'description'	=> $P['description']
+	), $app['id']);
 
 	# Vamonos a la lista de nuestras aplicaciones.
 	Core::Redirect('/dev/apps');
@@ -40,9 +50,9 @@ else
 		$message .= "<li>$e</li>";
 
 	# Guardamos los errores en una sesión.
-	_SESSION('new_app_error', $message);
+	_SESSION('app_error', $message);
 
 	# Redireccionar a la página de antes.
-	Core::Redirect('/dev/apps/new');
+	Core::Redirect('/dev/apps/' . $app['public_key']);
 }
 ?>

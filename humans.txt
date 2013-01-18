@@ -1,38 +1,25 @@
-/* Iniciativa de humanstxt.org/ES */
-
 /* TEAM */
 
-	/*
-		Escribe aquí separados por secciones los miembros que ayudaron
-		a la creación de esta aplicación.
-	*/
-
-	<tu cargo>: <tu nombre>
-	Contact: <tu correo electronico>
-	Twitter: <tu @ Twitter>
-	Facebook: <tu Facebook>
-	From: <tu ciudad/localizacion>
+	Desarrollador: Iván Bravo Bravo
+	Contact: webmaster@infosmart.mx
+	Twitter: @Kolesias123
+	Facebook: iban.bravo
+	From: Ciudad Lázaro Cárdenas, Michoacán, México.
 
 /* THANKS */
 
-	/*
-		Escribe aquí nombres y direcciones de los usuarios
-		que dieron recomendaciones, reportaron o errores o 
-		merecen agradecimientos.
-	*/
 
 /* SITE */
 
-	Language: <lenguaje>
+	Language: ES
 	Doctype: HTML5
 	Standards: CSS3, JavaScript
 
 	/* DEVELOPMENT */
-	/* Programas que usaste para desarrollar la aplicación */
 	BeatRock: http://beatrock.infosmart.mx/
+	Sublime Text 2: http://www.sublimetext.com/2
 
 	/* SOFTWARE */
-	/* Programas que usas para mantener la aplicación */
 	PHP: http://php.net/
 	MySQL: http://mysql.com/
 
@@ -41,4 +28,4 @@
 	Google Chrome Frame: https://developers.google.com/chrome/chrome-frame/
 
 	/* UTILS */
-	/* Utilidades, herramientas, sitios que te ayudaron */
+	

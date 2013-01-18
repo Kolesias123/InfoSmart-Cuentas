@@ -4,8 +4,7 @@ require 'Init.php';
 ## --------------------------------------------------
 ## Home
 ## --------------------------------------------------
-## Esta página es solicitada por AJAX cuando el usuario
-## cambia su información.
+## Home del usuario.
 ## --------------------------------------------------
 
 # No hemos iniciado sesión.
@@ -22,6 +21,6 @@ $birth 		= explode('/', $me['birthday']);
 # Plantilla: home.html
 # Plantilla secundaria: home.bar.html (Barra de la derecha)
 $page['id'] 	= array('home', 'home.bar');
-# Con esto tenemos los estilos y scrips apropiados.
+# Con esto tenemos los estilos y scripts apropiados.
 $page['home']	= true;
 ?>

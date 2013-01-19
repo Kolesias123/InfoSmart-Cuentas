@@ -18,7 +18,8 @@ $app = Apps::GetPublic($P['public']);
 if(!$app)
 	Core::Redirect('/dev/apps');
 
-$error = array();
+$app_features 	= json_decode($app['features'], true);
+$error 			= array();
 
 # Nombre
 if( empty($P['name']) )
@@ -31,10 +32,66 @@ if( empty($P['description']) )
 # Sin errores.
 if( empty($error) )
 {
+	$features = array();
+
+	## Pasamos cada uno de los campos de características y las ponemos en un array.
+	## TODO: ¿Hay algo mejor que esto?
+	foreach($P['feature_title'] as $key => $value)
+	{
+		# Titulo vacio, tomar como eliminación.
+		if( empty($value) )
+		{
+			unset($P['feature_content'][$key], $P['feature_image'][$key]);
+			continue;
+		}
+
+		$features[$key]['title'] = $value;
+	}
+
+	foreach($P['feature_content'] as $key => $value)
+	{
+		# Contenido vacio, tomar como eliminación.
+		if( empty($value) )
+		{
+			unset($features[$key], $P['feature_image'][$key]);
+			continue;
+		}
+
+		$features[$key]['content'] = $value;
+	}
+
+	$photos = array();
+
+	## Al parecer $_FILES no me coopera, ahí que reordenar la forma en que me envia el array.
+	foreach($_FILES['feature_image'] as $key => $value)
+	{
+		foreach($value as $vkey => $vvalue)
+			$photos[$vkey][$key] = $vvalue;
+	}
+
+	# Guardar fotos
+	if( !empty($photos) )
+	{
+		foreach($photos as $key => $file)
+		{
+			$md5 = Apps::SaveFilePhotoFeature($file);
+
+			if($md5 == false)
+			{
+				$features[$key]['image'] = ( empty($app_features[$key]['image']) ) ? '' : $app_features[$key]['image'];
+				continue;
+			}
+
+			$features[$key]['image'] = $md5;
+		}	
+	}
+
+
 	# Actualizamos la información.
 	Apps::Update(array(
 		'name'			=> $P['name'],
-		'description'	=> $P['description']
+		'description'	=> $P['description'],
+		'features'		=> json_encode($features)
 	), $app['id']);
 
 	# Vamonos a la lista de nuestras aplicaciones.
